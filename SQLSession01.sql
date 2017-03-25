@@ -80,6 +80,7 @@ DECLARE @saldo FLOAT	-- Valores decimales aproximados
 DECLARE @saldo2 REAL	-- similar a float
 DECLARE @saldo4 NUMERIC(5,2) = 125.317	-- Valor decimal exacto (5 digito, 2 decimales)
 DECLARE @saldo3 DECIMAL(5,2) = 125.317	-- Similar al anterior
+SELECT @saldo3
 SET @saldo3 = 125.30
 
 -- Fecha / Hora
@@ -117,7 +118,7 @@ PRINT @N1 / @n2 -- Division entera
 PRINT @n1 % @n2 -- Modulo, residuo
 PRINT @n1 / CONVERT(DECIMAL(5,2),@n2)
 
-DECLARE @n3 DECIMAL(5,2) = 27.456
+DECLARE @n3 DECIMAL(5,2) = 27.0--456
 PRINT CONVERT(INT,@n3)
 PRINT FLOOR(@n3) -- menor valor entero
 PRINT CEILING(@n3) -- siguiente valor entero

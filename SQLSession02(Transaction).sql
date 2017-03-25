@@ -1,0 +1,18 @@
+USE pubs
+GO
+
+BEGIN TRANSACTION 
+
+--SELECT * FROM 
+UPDATE
+authors 
+SET contract = 1
+WHERE au_id = '341-22-1782'
+
+SELECT * FROM 
+authors 
+WHERE au_id = '341-22-1782'
+
+
+COMMIT TRANSACTION
+ROLLBACK TRANSACTION
