@@ -116,3 +116,39 @@ SELECT DATEDIFF(year, '19720625', GETDATE())
 --	Ej: 2017-03-25 17:34:22 ---> 2017-03-01 12:00:00
 SELECT DATEADD(day,10, GETDATE())
 
+--DATEPART
+SELECT	GETDATE() Fecha
+	,DATEPART(year, GETDATE()) [Año]
+	,YEAR(GETDATE()) [Año]
+	,DATEPART(quarter, GETDATE()) Semestre
+	,DATEPART(month, GETDATE()) Mes
+	,MONTH(GETDATE()) Mes
+	,DATEPART(day, GETDATE()) Dia
+	,DAY(GETDATE()) Dia
+	,DATEPART(dayofyear, GETDATE()) [DiadelAño]
+	,DATEPART(week, GETDATE()) [Semana]
+	,DATEPART(weekday, GETDATE()) [DiaDeLaSemana] -- Domingo:1, Sabado:7
+	,DATEPART(hour, GETDATE()) [Hora]
+	,DATEPART(minute, GETDATE()) [Minuto]
+	,DATEPART(second, GETDATE()) [Segundo]
+GO
+
+SET DATEFIRST 1 -- Lunes
+SELECT DATEPART(weekday,GETDATE()), DATEPART(week, GETDATE())
+SET DATEFIRST 7 -- Domingo (US)
+SELECT DATEPART(weekday,GETDATE()), DATEPART(week, GETDATE())
+GO
+
+
+SELECT DATENAME(month, GETDATE()), DATENAME(weekday, GETDATE()), DATENAME(day, GETDATE())
+
+SELECT * FROM sys.syslanguages
+SET LANGUAGE 'Korean'
+SELECT DATENAME(MM, GETDATE()), DATENAME(weekday, GETDATE()), DATENAME(day, GETDATE())
+SET LANGUAGE 'Spanish'
+SELECT DATENAME(month, GETDATE()), DATENAME(weekday, GETDATE()), DATENAME(day, GETDATE())
+GO
+
+
+
+
