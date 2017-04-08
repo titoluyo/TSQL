@@ -83,7 +83,7 @@ Ctrl + F -- Find
 Ctrl + H -- Find & Replace
 */
 
-DECLARE @order INT = 3
+DECLARE @order INT = 1
 SELECT * FROM publishers
 ORDER BY
 	CASE @order
@@ -111,7 +111,7 @@ SELECT LEN('Hola Mundo')
 SELECT GETDATE()
 SELECT DATEDIFF(year, '19720625', GETDATE())
 --TAREA: calcular la edad
---TAREA: calcular el primer dia del mes de la columna X 
+--TAREA: calcular el primer y ultimo dia del mes de la columna X 
 --	(buscar una columna con fecha hora)
 --	Ej: 2017-03-25 17:34:22 ---> 2017-03-01 12:00:00
 SELECT DATEADD(day,10, GETDATE())
