@@ -79,16 +79,37 @@ TRUNCATE TABLE mitabla -- borra todos los registros, resetea el IDENTITY
 SELECT * FROM mitabla
 GO
 
+DELETE mitabla WHERE cod > 300
+INSERT mitabla (nombre) VALUES ('prueba2')
+DBCC CHECKIDENT ('mitabla', RESEED, 300);  
+
 DROP TABLE mitabla -- borra la tabla como objeto
 GO
 
 -----------------------
+SELECT TOP 10 *
+FROM LFSCierre201502.dbo.climide TIT
+
+-- 010000081	MENENDEZ/FERNANDEZ,JORGE EMILIO	010019339	MENDIZABAL/BUSTAMANTE\*MENENDEZ,MARTHA MAGDALENA                      
+
+SELECT TOP 10 TIT.ccodcli, TIT.cnomcli, TIT.ccodcon
+FROM LFSCierre201502.dbo.climide TIT
+WHERE TIT.ccodcli = '010000081'
+
+SELECT TOP 10 CON.ccodcli, CON.cnomcli
+FROM LFSCierre201502.dbo.climide CON
+WHERE CON.ccodcli = '010019339'
+
 -- SELF REFRERENCE --
-SELECT TIT.ccodcli,TIT.cnomcli,TIT.ccodcon, ISNULL(CON.cnomcli,'')
+SELECT TOP 10 TIT.ccodcli, TIT.cnomcli, TIT.ccodcon, ISNULL(CON.cnomcli,'')
 FROM LFSCierre201502.dbo.climide TIT
 LEFT JOIN LFSCierre201502.dbo.climide CON ON TIT.ccodcon = CON.ccodcli
+WHERE TIT.ccodcli = '010000016'
+--WHERE TIT.ccodcli = '010000081'
 GO
 
+USE RCC
+GO
 -- UNION --
 SELECT TOP 1000 * INTO #Saldos201011 FROM dbo.Saldos201011 
 SELECT TOP 1000 * INTO #Saldos201012 FROM dbo.Saldos201012
@@ -176,8 +197,10 @@ SELECT *
 FROM mitabla T
 LEFT JOIN sys.objects O ON T.nombre = O.name 
 
+SELECT * FROM sys.objects
+
 UPDATE mitabla
-SET nombre = nombre + ' (' + O.type COLLATE Modern_Spanish_CI_AS  + ')'
+SET nombre = T.nombre + ' (' + O.type COLLATE Modern_Spanish_CI_AS  + ')'
 FROM mitabla T
 JOIN sys.objects O ON T.nombre = O.name 
 
