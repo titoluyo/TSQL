@@ -11,7 +11,7 @@ GO
 
 set nocount    on
 set dateformat mdy
-
+/*
 USE master
 
 declare @dttm varchar(55)
@@ -32,9 +32,8 @@ go
 
 raiserror('Creating pubs database....',0,1)
 go
-/*
+
    Use default size with autogrow
-*/
 
 CREATE DATABASE pubs
 GO
@@ -42,7 +41,7 @@ GO
 CHECKPOINT
 
 GO
-
+*/
 USE pubs
 
 GO
@@ -2150,7 +2149,7 @@ USE master
 
 GO
 
-CHECKPOINT
+--CHECKPOINT
 
 GO
 

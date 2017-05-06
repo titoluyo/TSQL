@@ -36,6 +36,10 @@ END
 LOQUEQUIERAS: -- DEFINICION DE ETIQUETA (: AL FINAL)
 SELECT GETDATE()
 
+GO
+
+USE RCC
+GO
 --DROP TABLE mitabla
 CREATE TABLE mitabla (
 	codigo INT IDENTITY(1,1) NOT NULL , --  PRIMARY KEY,
@@ -80,3 +84,7 @@ ALTER TABLE mitabla ALTER COLUMN direccion VARCHAR(10) NOT NULL -- OK!
 --https://blog.sqlauthority.com
 -- SQL Developer Edition (2016?) FREE!!!
 -- https://myprodscussu1.app.vssubscriptions.visualstudio.com/Downloads?q=SQL%20Server%202016%20Developer
+
+USE BASE_CARTERA
+GO
+SELECT * FROM mitabla
