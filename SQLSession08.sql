@@ -1,0 +1,2 @@
+-- Creacion de Vista consolidada uvw_Saldos
+-- Creacion y optimizacion de PROCEDURE '2.Cartera Simulada CMAC 00 PROCEDURE- Completo - Segun Producto.sql'
